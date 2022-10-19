@@ -1,3 +1,5 @@
+import InputBox from "./InputBox"
+
 const InvoiceForm=()=>{
         return <div>
             <div className=" flex justify-between">
@@ -12,6 +14,88 @@ const InvoiceForm=()=>{
             </div>
             <form>
                 <div>Form</div>
+                <div className=" grid grid-cols-2 gap-x-4 gap-y-8">
+                    <InputBox 
+                        id="name"
+                        value=""
+                        onBlur={()=>{}}
+                        type="text"
+                        placeholder="Name"
+                        onChange={()=>{}}
+                        touched=""
+                        label=""
+
+                    />
+                    <InputBox 
+                        id="email"
+                        value=""
+                        onBlur={()=>{}}
+                        type="email"
+                        placeholder="Email"
+                        onChange={()=>{}}
+                        touched=""
+                        label=""
+
+                    />
+                    <InputBox 
+                        id="contact"
+                        value=""
+                        onBlur={()=>{}}
+                        type="tel"
+                        placeholder="Phone number"
+                        onChange={()=>{}}
+                        touched=""
+                        label=""
+
+                    />
+                    <InputBox 
+                        id="bussines_contact"
+                        value=""
+                        onBlur={()=>{}}
+                        type="tel"
+                        placeholder="Business number"
+                        onChange={()=>{}}
+                        touched=""
+                        label=""
+
+                    />
+                    <div className=" col-span-2">
+                        <InputBox 
+                            id="address"
+                            value=""
+                            onBlur={()=>{}}
+                            type="text"
+                            placeholder="Address"
+                            onChange={()=>{}}
+                            touched=""
+                            label=""
+
+                        />
+                    </div>
+                    <InputBox 
+                        id="item_name"
+                        value=""
+                        onBlur={()=>{}}
+                        type="text"
+                        placeholder="Item name"
+                        onChange={()=>{}}
+                        touched=""
+                        label=""
+
+                    />
+                    <InputBox 
+                        id="amount"
+                        value=""
+                        onBlur={()=>{}}
+                        type="number"
+                        placeholder="Amount"
+                        onChange={()=>{}}
+                        touched=""
+                        label=""
+
+                    />
+
+                </div>
             </form>
 
         </div>
