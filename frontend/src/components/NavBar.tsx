@@ -1,11 +1,13 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
+import 'primeicons/primeicons.css';
+
 interface IProps {
     children: ReactNode;
 }
 
-const Header=({children}:IProps)=>{
+const NavBar=({children}:IProps)=>{
     return <div>
         <div className=" bg-red-300 flex justify-between p-4">
             <div className=" flex ">
@@ -20,8 +22,8 @@ const Header=({children}:IProps)=>{
             </div>
 
             <div className="grid grid-cols-3 gap-x-2 ">
-                <div>search</div>
-                <div>notifi</div>
+                <div><i className=" pi pi-search"></i></div>
+                <div><i className=" pi pi-bell"></i></div>
                 <div>profile</div>
             </div>
         </div>
@@ -29,4 +31,4 @@ const Header=({children}:IProps)=>{
     </div>
 }
 
-export default Header;
+export default NavBar;

@@ -1,14 +1,14 @@
 import SimpleName from "../components/SimpleName";
 import ChangeSimpleName from "../components/SimpleName/ChangeSimpleName";
-import Header from "components/Header";
+import NavBar from "components/NavBar";
 
 const HomePage = () => {
-    return (<Header>
+    return (<NavBar>
         Home page
         <p>
             <SimpleName/>
             <ChangeSimpleName/>
         </p>
-    </Header>);
+    </NavBar>);
 };
 export default HomePage;
