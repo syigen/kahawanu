@@ -1,3 +1,4 @@
+import UserSummery from "pages/UserSummery"
 import { useState, useEffect } from "react"
 import { JsxElement } from "typescript"
 
@@ -54,20 +55,25 @@ const DetailCard=(props:Iprops)=>{
 
 
     const [svg, setSvg]= useState<JSX.Element>()
+    const [bgColor, setBgColor]= useState<string>()
 
     useEffect(()=>{
         switch(props.title){
             case "Invoice":
                 setSvg(invoiceIcon);
+                setBgColor("bg-[#FFC2A0]")
                 break;
             case "Payment":
                 setSvg(paymentIcon);
+                setBgColor("bg-[#C7F6A9]")
                 break;
             case "Clients":
                 setSvg(clientsIcon);
+                setBgColor("bg-[#B2BBFF]")
                 break;
             case "Purchase":
                 setSvg(purchaseIcon);
+                setBgColor("bg-[#FFAFC3]")
                 break;
             default:
                 
@@ -76,11 +82,15 @@ const DetailCard=(props:Iprops)=>{
     
 
     return (
-        <div className=" bg-[#FFC2A0] grid grid-rows-2 p-4 gap-y-8 rounded-xl">
+        <>
+        
+        <div className={` grid grid-rows-2 p-4 gap-y-8 rounded-xl ${bgColor}`}>
             <div>{svg}</div>
             <p className=" text-lg font-bold">{props.title}</p>
 
         </div>
+        
+        </>
     )
 }
 
