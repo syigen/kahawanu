@@ -1,6 +1,7 @@
 import AccountBalance from "components/ContentCards/AccountBalance"
 import DetailCard from "components/ContentCards/DetailCard"
 import MonthlySummery from "components/ContentCards/MonthlySummery"
+import InvoiceForm from "components/InvoiceForm"
 import NavBar from "components/NavBar"
 
 const UserSummery=()=>{
@@ -14,7 +15,7 @@ const UserSummery=()=>{
                 <DetailCard title="Payment"/>
                 <DetailCard title="Clients"/>
                 <DetailCard title="Purchase"/>
-
+                <div className=" col-span-2 row-span-3"><InvoiceForm/></div>
             </div>
 
         </div>
