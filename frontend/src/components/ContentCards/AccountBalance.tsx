@@ -25,7 +25,7 @@ const AccountBalance=()=>{
                         <div className=" grid grid-cols-2 ">
 
                             <div className=" text-white">
-                                <p className=" text-xl">John Doe</p>
+                                <p className=" text-sm">John Doe</p>
                                 <div className=" flex items-center ">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="24" height="24" fill="#1E1E1E"/>
@@ -45,7 +45,7 @@ const AccountBalance=()=>{
                                 </div>
                             </div>
                             <div className=" text-white">
-                                <p className=" text-xl">Account Balance</p>
+                                <p className=" text-sm">Account Balance</p>
                                 <span className="text-2xl font-bold">$1483.76</span>
                             </div>
                         </div>

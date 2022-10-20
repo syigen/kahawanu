@@ -21,8 +21,8 @@ const MonthlySummery=(props:Iprops)=>{
                     </svg>
                 
                     <div className=" text-white">
-                        <p className=" text-xl">{props.title}</p>
-                        <span className="text-2xl font-bold">$1483.76</span>
+                        <p className=" text-sm txet-[#91939D]">{props.title}</p>
+                        <span className="text-2xl font-bold text-[#151B2C]">$1483.76</span>
                     </div>
                     
                 </div>  
