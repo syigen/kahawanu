@@ -1,4 +1,4 @@
-import UserSummery from "pages/UserSummery"
+import UserSummery from "pages/Overview"
 import { useState, useEffect } from "react"
 import { JsxElement } from "typescript"
 

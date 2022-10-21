@@ -14,11 +14,11 @@ const NavBar=({children}:IProps)=>{
     return <div>
         <div className=" bg-red-300 flex justify-between p-4">
             <div className=" flex ">
-                <div className=" px-8">LOGO</div>
+                <Link to="/"><div className=" px-8">LOGO</div></Link>
                 <ul className=" grid grid-cols-4 gap-x-2">
-                <Link to="">Overview</Link>
-                <Link to="">Invoices</Link>
-                <Link to="">Clients</Link>
+                <Link to="/overview">Overview</Link>
+                <Link to="/invoice">Invoices</Link>
+                <Link to="/create-invoice">Create Invoices</Link>
                 <Link to="">Payments</Link>
                 </ul>
                 

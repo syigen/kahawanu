@@ -13,7 +13,7 @@ import { InputText } from 'primereact/inputtext';
 import { Calendar } from 'primereact/calendar';
 import UserDetail from 'components/UserDetailCard';
 
-const UserSummery=()=>{
+const Overview=()=>{
 
     const [dates2, setDates2] = useState<Date | Date[] | undefined>(undefined);
 
@@ -62,4 +62,4 @@ const UserSummery=()=>{
         </div>
     </NavBar>
 }
-export default UserSummery
+export default Overview

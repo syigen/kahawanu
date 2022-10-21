@@ -1,14 +1,16 @@
 import {Route, Routes} from "react-router-dom";
 import HomePage from "../pages/HomePage";
-import UserSummery from "pages/UserSummery";
-import InvoiceForm from "components/InvoiceForm";
+import Overview from "pages/Overview";
+import Invoice from "../pages/Invoice";
+import CreateInvoice from "pages/CreateInvoice";
 
 const AuthRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<HomePage/>}/>
-            <Route path="/user" element={<UserSummery/>}/>
-            <Route path="/form" element={<InvoiceForm/>}/>
+            <Route path="/overview" element={<Overview/>}/>
+            <Route path="/invoice" element={<Invoice/>}/>
+            <Route path="/create-invoice" element={<CreateInvoice/>}/>
         </Routes>
     );
 }
