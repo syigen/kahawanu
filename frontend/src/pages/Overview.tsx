@@ -35,7 +35,7 @@ const Overview=()=>{
                     <div className="flex justify-between">
                         <div className="p-input-icon-left flex flex-col w-1/2">
                             <i className="pi pi-search" />
-                            <InputText value="" onChange={()=>{}} placeholder="search by invoice number, date" />
+                            <InputText className="rounded-full" value="" onChange={()=>{}} placeholder="search by invoice number, date" />
                         </div>
                         <div>
                         <Calendar id="range" value={dates2} onChange={(e) => setDates2(e.value)} selectionMode="range" readOnlyInput  showIcon/>
