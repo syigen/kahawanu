@@ -1,7 +1,10 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
+import profile from "../images/profile.png"
+
 import 'primeicons/primeicons.css';
+
 
 interface IProps {
     children: ReactNode;
@@ -21,10 +24,12 @@ const NavBar=({children}:IProps)=>{
                 
             </div>
 
-            <div className="grid grid-cols-3 gap-x-2 ">
+            <div className="flex justify-between space-x-8 items-center">
                 <div><i className=" pi pi-search"></i></div>
                 <div><i className=" pi pi-bell"></i></div>
-                <div>profile</div>
+                <div>
+                    <img src={profile}/>
+                </div>
             </div>
         </div>
         <div>{children}</div>
