@@ -28,19 +28,20 @@ const Invoice =()=>{
                             <p className=" text-[#25AF60] text-sm">+374.53</p>
                         </div>
                     </div>
+
                     <div >
                         <p className=" text-2xl font-bold mt-8">Invoice-Clients</p>
-                        <div className=" grid grid-cols-3 gap-x-3 gap-y-6">
+                        <div className=" grid grid-cols-3 gap-x-3 gap-y-6 mt-4">
 
-                            <div className="py-5 flex flex-col justify-between items-center space-y-2 rounded-lg bg-[#FFFFFF]">
+                            <div className="relative py-5 flex flex-col justify-between items-center  rounded-lg bg-[#FFFFFF]">
                                 <img width="40px" src={user1}/>
                                 <p>Bernard</p>
                                 <p className=" text-sm text-[#F99AB1]">+324.89</p>
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg className=" " width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M14.6666 7.99998C14.6666 11.68 11.6799 14.6666 7.99992 14.6666C4.31992 14.6666 2.07325 10.96 2.07325 10.96M2.07325 10.96H5.08659M2.07325 10.96V14.2933M1.33325 7.99998C1.33325 4.31998 4.29325 1.33331 7.99992 1.33331C12.4466 1.33331 14.6666 5.03998 14.6666 5.03998M14.6666 5.03998V1.70665M14.6666 5.03998H11.7066" stroke="#151B2C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </div>
-                            <div className="py-5 flex flex-col justify-between items-center space-y-2 rounded-lg bg-[#FFFFFF]">
+                            <div className=" py-5 flex flex-col justify-between items-center space-y-2 rounded-lg bg-[#FFFFFF]">
                                 <img width="40px" src={user1}/>
                                 <p>Bernard</p>
                                 <p className=" text-sm text-[#F99AB1]">+324.89</p>
@@ -73,6 +74,9 @@ const Invoice =()=>{
                                 </svg>
                             </div>
 
+                        </div>
+                        <div className="  flex justify-center my-8">
+                            <button className=" border border-[#F99AB1] px-6 py-2 rounded-lg"> View more</button>
                         </div>
                     </div>
 

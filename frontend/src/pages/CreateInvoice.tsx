@@ -83,26 +83,73 @@ const CreateInvoice = () => {
           <div>
             <p>Upload invoice logo</p>
           </div>
+
           <Form title="From" business_number="Business number"/>
           <Form title="To"/>
-          <div>
-            <p>Invoice details</p>
-            {/* <table>
-                <thead className="text-[#6576FD]">
-                   <tr>
-                    <th>Description</th>
-                    <th>Rate</th>
-                    <th>Qty</th>
-                    <th>Amount</th>
-                   </tr>
-                </thead>
-                <tbody>
-                    <tr></tr>
-                </tbody>
-            </table> */}
-            <div>
-                
+
+          <div className=" mt-8 ">
+            <p className=" text-xl font-bold">Invoice details</p>
+
+            <div className=" grid grid-cols-7 gap-x-10 mt-3">
+              <p className=" col-span-3 text-[#6576FD] font-bold">Description</p>
+              <p className="  text-[#6576FD] font-bold">Rate</p>
+              <p className="  text-[#6576FD] font-bold">QTY</p>
+              <p className="col-span-2 text-[#6576FD] font-bold">Amount</p>
             </div>
+            
+            <div className=" grid grid-cols-7 gap-x-10 mt-3">  
+              <div className=" col-span-3 ">
+                <InputBox
+                  id="description"
+                  value=""
+                  onChange={() => {}}
+                  onBlur={() => {}}
+                  type="text"
+                  placeholder="description"
+                  error=""
+                  label=""
+                  touched=""
+                />
+              </div>
+
+                <InputBox
+                  id="rate"
+                  value=""
+                  onChange={() => {}}
+                  onBlur={() => {}}
+                  type="text"
+                  placeholder="rate"
+                  error=""
+                  label=""
+                  touched=""
+                />
+
+                <InputBox
+                  id="qty"
+                  value=""
+                  onChange={() => {}}
+                  onBlur={() => {}}
+                  type="text"
+                  placeholder="qty"
+                  error=""
+                  label=""
+                  touched=""
+                />
+                <div className=" col-span-2">
+                  <InputBox
+                    id="amount"
+                    value=""
+                    onChange={() => {}}
+                    onBlur={() => {}}
+                    type="text"
+                    placeholder="amount"
+                    error=""
+                    label=""
+                    touched=""
+                  />
+                </div>
+            </div>
+            
           </div>
         </div>
 
