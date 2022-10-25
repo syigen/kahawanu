@@ -96,7 +96,7 @@ const CreateInvoice = () => {
               <p className="  text-[#6576FD] font-bold">QTY</p>
               <p className="col-span-2 text-[#6576FD] font-bold">Amount</p>
             </div>
-            
+
             <div className=" grid grid-cols-7 gap-x-10 mt-3">  
               <div className=" col-span-3 ">
                 <InputBox
@@ -149,7 +149,9 @@ const CreateInvoice = () => {
                   />
                 </div>
             </div>
-            
+            <div className=" ">
+              <button className=" bg-[#151B2C] text-[#FFFFFF] px-4 py-2 rounded-lg mt-6"> Add 1 more item</button>
+            </div>
           </div>
         </div>
 
