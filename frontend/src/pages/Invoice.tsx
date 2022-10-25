@@ -13,7 +13,7 @@ const Invoice =()=>{
 
                     <p className=" text-2xl font-bold">Account Status</p>
 
-                    <div className=" bg-[#FFFFFF] mt-6 pt-6 px-6 space-y-2">
+                    <div className=" bg-[#FFFFFF] mt-6 py-6 px-6 space-y-2 rounded-xl">
                         <p className=" text-[#91939D] text-sm">Paid by this month</p>
                         <div className=" flex items-end space-x-2">
                             <p className=" text-xl font-bold">$14,432</p>
@@ -21,7 +21,7 @@ const Invoice =()=>{
                         </div>
                     </div>
 
-                    <div className=" bg-[#FFFFFF] mt-6 pt-6 px-6 space-y-2">
+                    <div className=" bg-[#FFFFFF] mt-6 py-6 px-6 space-y-2 rounded-xl">
                         <p className=" text-[#91939D] text-sm">Paid by this month</p>
                         <div className=" flex items-end space-x-2">
                             <p className=" text-xl font-bold">$14,432</p>
