@@ -101,9 +101,7 @@ const CreateInvoice = () => {
                 </tbody>
             </table> */}
             <div>
-                <div>
-                    <p>Description</p>
-                </div>
+                
             </div>
           </div>
         </div>
