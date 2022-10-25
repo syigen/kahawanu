@@ -1,3 +1,5 @@
+import React, { ChangeEvent, useState } from "react";
+
 import NavBar from "components/NavBar";
 import InputBox from "components/InputBox";
 import { InputTextarea } from "primereact/inputtextarea";
@@ -7,8 +9,16 @@ interface Iprops {
     business_number?:string
 }
 
-const Form = ({title, business_number}:Iprops)=>{
+interface invoiceDetail{
+  description:string,
+  rate:string,
+  qty:number,
+  amount:string
+}
 
+let ItemDetailList : invoiceDetail[] = []
+
+const Form = ({title, business_number}:Iprops)=>{
     return<form>
     <p>{title}</p>
     <div className=" grid grid-cols-2 gap-x-6 gap-y-5">
@@ -69,6 +79,30 @@ const Form = ({title, business_number}:Iprops)=>{
 
 const CreateInvoice = () => {
 
+  const [detailList, setDetailList]= useState<invoiceDetail[]>()
+  const [details, setDetails] = useState<invoiceDetail>({
+    description:"",
+    rate: "",
+    qty: 0,
+    amount:""
+  });
+
+  const ItemDetailChangeHandler=(e:React.ChangeEvent<HTMLInputElement>)=>{
+
+    setDetails((prevState)=>{
+        return {...prevState, [e.target.name]: e.target.value }
+    });
+
+  }
+
+  const AddItemHandler=(e:React.MouseEvent)=>{
+      ItemDetailList.push(details);
+      setDetailList(ItemDetailList)
+      console.log(detailList)
+  }
+
+
+
   return (
     <NavBar>
       <div className=" grid grid-cols-3 mx-20 ">
@@ -101,8 +135,8 @@ const CreateInvoice = () => {
               <div className=" col-span-3 ">
                 <InputBox
                   id="description"
-                  value=""
-                  onChange={() => {}}
+                  value={details.description}
+                  onChange={ItemDetailChangeHandler}
                   onBlur={() => {}}
                   type="text"
                   placeholder="description"
@@ -114,8 +148,8 @@ const CreateInvoice = () => {
 
                 <InputBox
                   id="rate"
-                  value=""
-                  onChange={() => {}}
+                  value={details.rate}
+                  onChange={ItemDetailChangeHandler}
                   onBlur={() => {}}
                   type="text"
                   placeholder="rate"
@@ -126,8 +160,8 @@ const CreateInvoice = () => {
 
                 <InputBox
                   id="qty"
-                  value=""
-                  onChange={() => {}}
+                  value={details.qty}
+                  onChange={ItemDetailChangeHandler}
                   onBlur={() => {}}
                   type="text"
                   placeholder="qty"
@@ -138,8 +172,8 @@ const CreateInvoice = () => {
                 <div className=" col-span-2">
                   <InputBox
                     id="amount"
-                    value=""
-                    onChange={() => {}}
+                    value={details.amount}
+                    onChange={ItemDetailChangeHandler}
                     onBlur={() => {}}
                     type="text"
                     placeholder="amount"
@@ -150,7 +184,7 @@ const CreateInvoice = () => {
                 </div>
             </div>
             <div className=" ">
-              <button className=" bg-[#151B2C] text-[#FFFFFF] px-4 py-2 rounded-lg mt-6"> Add 1 more item</button>
+              <button className=" bg-[#151B2C] text-[#FFFFFF] px-4 py-2 rounded-lg mt-6" onClick={AddItemHandler}> Add 1 more item</button>
             </div>
           </div>
         </div>
