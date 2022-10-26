@@ -145,21 +145,22 @@ const CreateInvoice = () => {
     <NavBar>
       <div className=" grid grid-cols-3 mx-20 ">
         <div className="col-span-2 px-6 py-6 bg-[#F7F7FA]">
-          <div className=" flex justify-between">
-            <div>
-              <p>Create Invoice</p>
-              <p>INV2983649020</p>
+          <div className=" flex justify-between items-start">
+            <div className=" space-y-3">
+              <p className=" text-3xl font-bold ">Create Invoice</p>
+              <p className=" bg-[#FFE4EB] px-3 py-1 rounded-lg w-fit">INV2983649020</p>
             </div>
-            <button>Back</button>
+            <button className=" text-[#91939D] bg-[#FFFFFF] py-2 px-6 rounded-lg" >Back</button>
           </div>
-          <div>
-            <p>Upload invoice logo</p>
+          <div className=" mt-8">
+            <p className=" text-xl font-bold">Upload invoice logo</p>
+            <div></div>
           </div>
 
           <Form title="From" business_number="Business number"/>
           <Form title="To" business_number=""/>
 
-          <div className=" mt-8 ">
+          <div className=" mt-8 bg-[#EFF2FF] px-6 py-6 rounded-lg">
             <p className=" text-xl font-bold">Invoice details</p>
 
             <div className=" grid grid-cols-7 gap-x-10 mt-3">
@@ -232,7 +233,29 @@ const CreateInvoice = () => {
             <div className=" ">
               <button className=" bg-[#151B2C] text-[#FFFFFF] px-4 py-2 rounded-lg mt-6" onClick={AddItemHandler}> Add 1 more item</button>
             </div>
+              
           </div>
+
+            <div className=" flex  justify-end mt-8">
+              <div className=" flex flex-col items-end text-[#91939D]">
+                <p>Subtotal - </p>
+                <p>Tax - </p>
+                <p>Total - </p>
+                <p>Balance due - </p>
+              </div>
+              <div className=" flex flex-col items-end w-1/4 font-bold">
+                <p>${1000}</p>
+                <p>${1000}</p>
+                <p>${1000}</p>
+                <p>${1000}</p>
+              </div>
+                
+            </div>
+              
+            <div className=" grid grid-cols-2 gap-x-6 mt-12">
+              <button className=" bg-[#FFEAEF] py-4 rounded-lg" type="button">Preview as email</button>
+              <button className=" bg-[#191D30] text-[#FFFFFF] py-4 rounded-lg" type="button">Generate Invoice</button>
+            </div>
         </div>
 
         <div className=" col-span-1">
