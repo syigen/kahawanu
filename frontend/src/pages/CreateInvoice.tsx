@@ -16,10 +16,10 @@ interface invoiceDetail{
   qty:string,
   amount:string
 }
-
 let ItemDetailList : invoiceDetail[] = []
 
-const Form = ({title, business_number}:Iprops)=>{
+const CreateInvoice = () => {
+
   const formik = useFormik({
     initialValues:{
       name:"",
@@ -27,87 +27,17 @@ const Form = ({title, business_number}:Iprops)=>{
       contact:"",
       biz_contact:"",
       address:"",
+      name_2:"",
+      email_2:"",
+      contact_2:"",
+      address_2:"",
       pan_card:""
      
     },
     onSubmit:(values)=>{
         alert(values)
     },
-
   })
-    return<form>
-    <p>{title}</p>
-    <div className=" grid grid-cols-2 gap-x-6 gap-y-5">
-      <InputBox
-        id="name"
-        value={formik.values.name}        
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        type="text"
-        placeholder="Name"
-        error={formik.errors.name}
-        label={""}
-        touched={formik.touched.name}
-      />
-      <InputBox
-        id="email"
-        value={formik.values.email}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        type="text"
-        placeholder="Email address"
-        error={formik.errors.email}
-        label=""
-        touched={formik.touched.email}
-      />
-      <InputBox
-        id="contact"
-        value={formik.values.contact}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        type="text"
-        placeholder="Phone number"
-        error={formik.errors.contact}
-        label=""
-        touched={formik.touched.contact}
-      />
-      {business_number ?<InputBox
-        id={ "biz_contact"}
-        value={formik.values.biz_contact}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        type="text"
-        placeholder={"Business number"}
-        error={formik.errors.biz_contact}
-        label=""
-        touched={formik.touched.biz_contact}
-      /> :
-       <InputBox
-        id={ "pan_card"}
-        value={formik.values.pan_card}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        type="text"
-        placeholder={"Pan card number"}
-        error={formik.errors.pan_card}
-        label=""
-        touched={formik.touched.pan_card}
-      />}
-      <InputTextarea
-        id="address"
-        className="col-span-2"
-        value={formik.values.address}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        autoResize
-        placeholder="Address"
-      
-      />
-    </div>
-  </form>
-}
-
-const CreateInvoice = () => {
 
   const [detailList, setDetailList]= useState<invoiceDetail[]>()
   const [details, setDetails] = useState<invoiceDetail>({
@@ -121,7 +51,6 @@ const CreateInvoice = () => {
     setDetails((prevState)=>{
         return {...prevState, [e.target.id]: e.target.value }
     });
-
   }
 
   const AddItemHandler=(e:React.MouseEvent)=>{
@@ -135,14 +64,11 @@ const CreateInvoice = () => {
         rate: "",
         qty: "",
         amount:""
-      })
-      
+      })    
   }
- 
-
-
   return (
     <NavBar>
+   <form onSubmit={formik.handleSubmit}> 
       <div className=" grid grid-cols-3 mx-20 ">
         <div className="col-span-2 px-6 py-6 bg-[#F7F7FA]">
           <div className=" flex justify-between items-start">
@@ -157,8 +83,125 @@ const CreateInvoice = () => {
             <div></div>
           </div>
 
-          <Form title="From" business_number="Business number"/>
-          <Form title="To" business_number=""/>
+          <div>
+          <p className=" my-3 text-lg font-bold">From</p>
+              <div className=" grid grid-cols-2 gap-x-6 gap-y-5">
+                <InputBox
+                  id="name"
+                  value={formik.values.name}        
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  type="text"
+                  placeholder="Name"
+                  error={formik.errors.name}
+                  label={""}
+                  touched={formik.touched.name}
+                />
+                <InputBox
+                  id="email"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  type="text"
+                  placeholder="Email address"
+                  error={formik.errors.email}
+                  label=""
+                  touched={formik.touched.email}
+                />
+                <InputBox
+                  id="contact"
+                  value={formik.values.contact}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  type="text"
+                  placeholder="Phone number"
+                  error={formik.errors.contact}
+                  label=""
+                  touched={formik.touched.contact}
+                />
+                <InputBox
+                  id={ "biz_contact"}
+                  value={formik.values.biz_contact}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  type="text"
+                  placeholder={"Business number"}
+                  error={formik.errors.biz_contact}
+                  label=""
+                  touched={formik.touched.biz_contact}
+                /> 
+               
+                <InputTextarea
+                  id="address"
+                  className="col-span-2"
+                  value={formik.values.address}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  autoResize
+                  placeholder="Address"
+                
+                />
+              </div>
+              <p className=" my-3 text-lg font-bold">To</p>
+              <div className=" grid grid-cols-2 gap-x-6 gap-y-5">
+                <InputBox
+                  id="name_2"
+                  value={formik.values.name_2}        
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  type="text"
+                  placeholder="Name"
+                  error={formik.errors.name_2}
+                  label={""}
+                  touched={formik.touched.name_2}
+                />
+                <InputBox
+                  id="email_2"
+                  value={formik.values.email_2}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  type="text"
+                  placeholder="Email address"
+                  error={formik.errors.email_2}
+                  label=""
+                  touched={formik.touched.email_2}
+                />
+                <InputBox
+                  id="contact_2"
+                  value={formik.values.contact_2}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  type="text"
+                  placeholder="Phone number"
+                  error={formik.errors.contact_2}
+                  label=""
+                  touched={formik.touched.contact_2}
+                />
+                 
+                <InputBox
+                  id={ "pan_card"}
+                  value={formik.values.pan_card}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  type="text"
+                  placeholder={"Pan card number"}
+                  error={formik.errors.pan_card}
+                  label=""
+                  touched={formik.touched.pan_card}
+                />
+                <InputTextarea
+                  id="address_2"
+                  className="col-span-2"
+                  value={formik.values.address_2}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  autoResize
+                  placeholder="Address"
+                
+                />
+              </div>
+          </div>
+          
 
           <div className=" mt-8 bg-[#EFF2FF] px-6 py-6 rounded-lg">
             <p className=" text-xl font-bold">Invoice details</p>
@@ -254,7 +297,7 @@ const CreateInvoice = () => {
               
             <div className=" grid grid-cols-2 gap-x-6 mt-12">
               <button className=" bg-[#FFEAEF] py-4 rounded-lg" type="button">Preview as email</button>
-              <button className=" bg-[#191D30] text-[#FFFFFF] py-4 rounded-lg" type="button">Generate Invoice</button>
+              <button className=" bg-[#191D30] text-[#FFFFFF] py-4 rounded-lg" type="submit" >Generate Invoice</button>
             </div>
         </div>
 
@@ -262,18 +305,8 @@ const CreateInvoice = () => {
           <p>Preview</p>
         </div>
       </div>
-      <InputBox
-                  id="description"
-                  value={details.description}
-                  onChange={()=>{}}
-                  onBlur={() => {}}
-                  type="text"
-                  placeholder="description"
-                  error=""
-                  label=""
-                  touched=""
-                />
-    </NavBar>
+    </form>   
+  </NavBar>
   );
 };
 
