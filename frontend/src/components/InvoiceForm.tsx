@@ -85,7 +85,7 @@ const InvoiceForm = () => {
             id="item_name"
             value=""
             onBlur={() => {}}
-            type="text"
+            type="number"
             placeholder="Item name"
             onChange={() => {}}
             touched=""

@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
+import { useFormik } from "formik";
 
 import NavBar from "components/NavBar";
 import InputBox from "components/InputBox";
@@ -12,66 +13,95 @@ interface Iprops {
 interface invoiceDetail{
   description:string,
   rate:string,
-  qty:number,
+  qty:string,
   amount:string
 }
 
 let ItemDetailList : invoiceDetail[] = []
 
 const Form = ({title, business_number}:Iprops)=>{
+  const formik = useFormik({
+    initialValues:{
+      name:"",
+      email:"",
+      contact:"",
+      biz_contact:"",
+      address:"",
+      pan_card:""
+     
+    },
+    onSubmit:(values)=>{
+        alert(values)
+    },
+
+  })
     return<form>
     <p>{title}</p>
     <div className=" grid grid-cols-2 gap-x-6 gap-y-5">
       <InputBox
         id="name"
-        value=""
-        onChange={() => {}}
-        onBlur={() => {}}
+        value={formik.values.name}        
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
         type="text"
         placeholder="Name"
-        error=""
-        label=""
-        touched=""
+        error={formik.errors.name}
+        label={""}
+        touched={formik.touched.name}
       />
       <InputBox
         id="email"
-        value=""
-        onChange={() => {}}
-        onBlur={() => {}}
+        value={formik.values.email}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
         type="text"
         placeholder="Email address"
-        error=""
+        error={formik.errors.email}
         label=""
-        touched=""
+        touched={formik.touched.email}
       />
       <InputBox
         id="contact"
-        value=""
-        onChange={() => {}}
-        onBlur={() => {}}
+        value={formik.values.contact}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
         type="text"
         placeholder="Phone number"
-        error=""
+        error={formik.errors.contact}
         label=""
-        touched=""
+        touched={formik.touched.contact}
       />
-      <InputBox
-        id="biz_contact"
-        value=""
-        onChange={() => {}}
-        onBlur={() => {}}
+      {business_number ?<InputBox
+        id={ "biz_contact"}
+        value={formik.values.biz_contact}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
         type="text"
-        placeholder={business_number ? "Business number": "Pan card number"}
-        error=""
+        placeholder={"Business number"}
+        error={formik.errors.biz_contact}
         label=""
-        touched=""
-      />
+        touched={formik.touched.biz_contact}
+      /> :
+       <InputBox
+        id={ "pan_card"}
+        value={formik.values.pan_card}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        type="text"
+        placeholder={"Pan card number"}
+        error={formik.errors.pan_card}
+        label=""
+        touched={formik.touched.pan_card}
+      />}
       <InputTextarea
+        id="address"
         className="col-span-2"
-        value=""
-        onChange={() => {}}
+        value={formik.values.address}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
         autoResize
         placeholder="Address"
+      
       />
     </div>
   </form>
@@ -83,24 +113,32 @@ const CreateInvoice = () => {
   const [details, setDetails] = useState<invoiceDetail>({
     description:"",
     rate: "",
-    qty: 0,
+    qty: "",
     amount:""
   });
 
   const ItemDetailChangeHandler=(e:React.ChangeEvent<HTMLInputElement>)=>{
-
     setDetails((prevState)=>{
-        return {...prevState, [e.target.name]: e.target.value }
+        return {...prevState, [e.target.id]: e.target.value }
     });
 
   }
 
   const AddItemHandler=(e:React.MouseEvent)=>{
+    if(details.description.length===0){
+      return
+    }
       ItemDetailList.push(details);
       setDetailList(ItemDetailList)
-      console.log(detailList)
+      setDetails({
+        description:"",
+        rate: "",
+        qty: "",
+        amount:""
+      })
+      
   }
-
+ 
 
 
   return (
@@ -119,7 +157,7 @@ const CreateInvoice = () => {
           </div>
 
           <Form title="From" business_number="Business number"/>
-          <Form title="To"/>
+          <Form title="To" business_number=""/>
 
           <div className=" mt-8 ">
             <p className=" text-xl font-bold">Invoice details</p>
@@ -129,6 +167,14 @@ const CreateInvoice = () => {
               <p className="  text-[#6576FD] font-bold">Rate</p>
               <p className="  text-[#6576FD] font-bold">QTY</p>
               <p className="col-span-2 text-[#6576FD] font-bold">Amount</p>
+              {detailList && detailList.map(item=>{
+                return<>
+                    <p className=" bg-[#FFFFFF] col-span-3  font-bold px-3 py-2 rounded-lg">{item.description}</p>
+                    <p className=" bg-[#FFFFFF] font-bold px-3 py-2 rounded-lg">{item.rate}</p>
+                    <p className=" bg-[#FFFFFF] font-bold px-3 py-2 rounded-lg">{item.qty}</p>
+                    <p className=" bg-[#FFFFFF] col-span-2 font-bold px-3 py-2 rounded-lg">{item.amount}</p>
+                </>
+              })}
             </div>
 
             <div className=" grid grid-cols-7 gap-x-10 mt-3">  
@@ -193,6 +239,17 @@ const CreateInvoice = () => {
           <p>Preview</p>
         </div>
       </div>
+      <InputBox
+                  id="description"
+                  value={details.description}
+                  onChange={()=>{}}
+                  onBlur={() => {}}
+                  type="text"
+                  placeholder="description"
+                  error=""
+                  label=""
+                  touched=""
+                />
     </NavBar>
   );
 };
