@@ -5,6 +5,9 @@ import NavBar from "components/NavBar";
 import InputBox from "components/InputBox";
 import { InputTextarea } from "primereact/inputtextarea";
 
+import templateImage from "../images/template.png"
+import userImage from "../images/user_2.png"
+
 interface Iprops {
     title: string
     business_number?:string
@@ -69,8 +72,8 @@ const CreateInvoice = () => {
   return (
     <NavBar>
    <form onSubmit={formik.handleSubmit}> 
-      <div className=" grid grid-cols-3 mx-20 ">
-        <div className="col-span-2 px-6 py-6 bg-[#F7F7FA]">
+      <div className=" grid grid-cols-3 mx-20 gap-x-6">
+        <div className="col-span-2 px-6 py-6 bg-[#F7F7FA] rounded-2xl">
           <div className=" flex justify-between items-start">
             <div className=" space-y-3">
               <p className=" text-3xl font-bold ">Create Invoice</p>
@@ -301,8 +304,42 @@ const CreateInvoice = () => {
             </div>
         </div>
 
-        <div className=" col-span-1">
-          <p>Preview</p>
+        <div className=" col-span-1 px-6 py-6 bg-[#F7F7FA] rounded-2xl h-fit" >
+          <div className=" flex justify-between">
+            <p className=" text-2xl font-bold">Preview</p>
+            <div className=" flex space-x-4">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.96 14.17C26.96 15.56 28.34 17.77 28.62 20.32" stroke="#91939D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11.4902 20.37C11.7502 17.83 13.1102 15.62 15.0902 14.22" stroke="#91939D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16.1899 28.94C17.3499 29.53 18.6699 29.86 20.0599 29.86C21.3999 29.86 22.6599 29.56 23.7899 29.01" stroke="#91939D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20.0598 15.7C21.5951 15.7 22.8398 14.4554 22.8398 12.92C22.8398 11.3847 21.5951 10.14 20.0598 10.14C18.5244 10.14 17.2798 11.3847 17.2798 12.92C17.2798 14.4554 18.5244 15.7 20.0598 15.7Z" stroke="#91939D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12.8298 27.92C14.3652 27.92 15.6098 26.6753 15.6098 25.14C15.6098 23.6046 14.3652 22.36 12.8298 22.36C11.2945 22.36 10.0498 23.6046 10.0498 25.14C10.0498 26.6753 11.2945 27.92 12.8298 27.92Z" stroke="#91939D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M27.1701 27.92C28.7055 27.92 29.9501 26.6753 29.9501 25.14C29.9501 23.6046 28.7055 22.36 27.1701 22.36C25.6348 22.36 24.3901 23.6046 24.3901 25.14C24.3901 26.6753 25.6348 27.92 27.1701 27.92Z" stroke="#91939D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 17V14.5C10 12.01 12.01 10 14.5 10H17" stroke="#91939D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M23 10H25.5C27.99 10 30 12.01 30 14.5V17" stroke="#91939D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M30 24V25.5C30 27.99 27.99 30 25.5 30H24" stroke="#91939D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17 30H14.5C12.01 30 10 27.99 10 25.5V23" stroke="#91939D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+          </div>
+          <div className=" flex justify-center mt-4">
+            <img src={templateImage}/>
+          </div>
+          <div className=" flex space-x-8 justify-center mt-6">
+            <p className=" text-[#151B2C]">{"INV2983649020"}</p>
+            <p className=" text-[#91939D]">${"21000.00"}</p>
+          </div>
+          <div className=" flex space-x-4 justify-center mt-4">
+            <img src={userImage}/>
+            <div className=" flex space-x-2"> 
+              <p>To</p>
+              <p>{"Dianne Russell"}</p>
+            </div>
+          </div>
+          
         </div>
       </div>
     </form>   
